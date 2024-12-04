@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useClienteStore } from "@/context/cliente";
 import { AvaliacoesI } from "@/utils/types/avaliacoes";
 
-export default function avaliacoes() {
+export default function Avaliacoes() {
   const [avaliacoes, setAvaliacoes] = useState<AvaliacoesI[]>([])
   const { cliente } = useClienteStore()
 
@@ -26,7 +26,7 @@ export default function avaliacoes() {
   }
 
   const avaliacoesTable = avaliacoes.map(avaliacao => (
-    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+    <tr key={avaliacao.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         {avaliacao.produto.modelo}
       </th>
